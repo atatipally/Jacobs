@@ -1,0 +1,227 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"> 
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet"  href="css/jquery.mobile-1.2.0.css" />
+        <link rel="stylesheet"  href="css/jquery.mobile.custom-1.2.0.css" /> 
+        <link rel="stylesheet"  href="css/custome.css" />
+        <script src="js/jquery-1.8.2.js"></script> 
+        <script src="js/jquery.mobile-1.2.0.js"></script>
+        <script src="js/constants.js"></script> 
+        <script src="js/detectos.js"></script>
+        <script src="js/hash.js"></script>
+        <script src="js/menu.js"></script>
+        <style>
+            .icon_home_menu:active{
+                opacity: 0.5;
+            }
+            .icon_home_menu{
+                width: 90px;
+                height: 90px;
+                background-size: 105px 105px;
+                background-repeat: no-repeat;
+                background-position: center center;
+                text-align: center;
+                /*border: 1px solid;*/
+            }
+            .icon_home_menu_titles{
+                height: 20px;
+                text-align: center;
+                color: white;
+                text-shadow: 1px 1px 3px blue;
+                line-height: 5px;
+                font-weight: bold;
+                font-size: 12px;
+                margin-top: -20px;
+            }
+            .icon_settings:active{
+                opacity: 0.5;
+            }
+            .icon_settings{
+                width: 30px;
+                height: 30px;
+                background-image: url('./images/common/settings_icon.png');
+                background-size: 20px 20px;
+                background-repeat: no-repeat;
+                background-position: center center;
+                /*margin: 40% 0 0 85%;*/
+                position:absolute;
+                bottom:40px;
+                right: 10px;
+            }
+            .ui-body-c, .ui-overlay-c{
+                background-image: url('./images/android/menu_bg.png');
+                background-size: 100% 100%;
+                background-repeat: no-repeat;
+                background-position: center center;
+                overflow: hidden !important;
+            }
+            @media only screen and (-webkit-device-pixel-ratio:.75) and (orientation : portrait){
+                /* Put CSS for low density (ldpi) Android layouts in here */
+                .ui-body-c, .ui-overlay-c{
+                    background-image: url('./images/android/menu_bg.png');
+                    background-size: 100% 100%;
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                }
+            }
+            @media only screen and (-webkit-device-pixel-ratio:1) and (orientation : portrait){
+                /* Put CSS for medium density (mdpi) Android layouts in here */
+                .ui-body-c, .ui-overlay-c{
+                    background-image: url('./images/android/menu_bg.png');
+                    background-size: 100% 100%;
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                }
+            }
+            @media only screen and (-webkit-device-pixel-ratio:1.5) and (orientation : portrait){
+                /* Put CSS for high density (hdpi) Android layouts in here */
+                .ui-body-c, .ui-overlay-c{
+                    background-image: url('./images/android/menu_bg.png');
+                    background-size: 100% 100%;
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                }
+            }
+            
+            @media only screen and (-webkit-device-pixel-ratio:.75) and (orientation : landscape){
+                /* Put CSS for low density (ldpi) Android layouts in here */
+                .ui-body-c, .ui-overlay-c{
+                    background-image: url('./images/ios2x/menu_bg_ls.png');
+                    background-size: 100% 100%;
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                }
+            }
+            @media only screen and (-webkit-device-pixel-ratio:1) and (orientation : landscape){
+                /* Put CSS for high density (hdpi) Android layouts in here */
+                .ui-body-c, .ui-overlay-c{
+                    background-image: url('./images/ios2x/menu_bg_ls.png');
+                    background-size: 100% 100%;
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                }
+            }
+            @media only screen and (-webkit-device-pixel-ratio:1.5) and (orientation : landscape){
+                /* Put CSS for high density (hdpi) Android layouts in here */
+                .ui-body-c, .ui-overlay-c{
+                    background-image: url('./images/android/menu_bg_ls.png');
+                    background-size: 100% 100%;
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                }
+            }
+            
+
+            /******************************  iOS PORTRAIT  ********************************/
+            @media only screen and (device-width: 320px) and (device-height: 480px) and (orientation : portrait){
+                .ui-body-c, .ui-overlay-c{
+                    background-image: url('./images/ios2x/menu_bg.png');
+                    /*   background-size: 320px 480px;*/
+                    background-size: 100% 100%;
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                    overflow: hidden !important;
+                    height: 100% !important;
+                }
+            }
+            @media only screen and (device-width: 320px) and (device-height: 568px) and (orientation : portrait){
+                .ui-body-c, .ui-overlay-c{
+                    background-image: url('./images/iphone5/menu_bg.png');
+                    /*   background-size: 320px 568px;*/
+                    background-size: 100% 100%;
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                    overflow: hidden !important;
+                    height: 100% !important;
+                }
+            }
+            @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait){
+                .ui-body-c, .ui-overlay-c{
+                    background-image: url('./images/ipad/menu_bg.png');
+                    /*   background-size: 768px 1024px;*/
+                    background-size: 100% 100%;
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                }
+                .menu_iconsdiv{
+                    margin-top: 250px;
+                }
+            }
+            /******************************  iOS LANDSCAPE  ********************************/
+            @media only screen and (device-width: 320px) and (device-height: 480px) and (orientation : landscape){
+                .ui-body-c, .ui-overlay-c{
+                    background-image: url('./images/ios2x/menu_bg_ls.png');
+                    background-size: 100% 100%;
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                    overflow: hidden !important;
+                    height: 100% !important;
+                }
+                .menu_iconsdiv{
+                    margin-top: 80px;
+                }
+            }
+            @media only screen and (device-width: 320px) and (device-height: 568px) and (orientation : landscape){
+                .ui-body-c, .ui-overlay-c{
+                    background-image: url('./images/iphone5/menu_bg_ls.png');
+                    /*   background-size: 320px 568px;*/
+                    background-size: 100% 100%;
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                    overflow: hidden !important;
+                    height: 100% !important;
+                }
+                .menu_iconsdiv{
+                    margin-top: 80px;
+                }
+            }
+            @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape){
+                .ui-body-c, .ui-overlay-c{
+                    background-image: url('./images/ipad/menu_bg_ls.png');
+                    /*   background-size: 768px 1024px;*/
+                    background-size: 100% 100%;
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                }
+                .menu_iconsdiv{
+                    margin-top: 250px;
+                }
+            }
+            .ui-bar-c {
+                background: transparent;
+                border: none;
+            }
+            .landscape_bg{
+                background-image: url('./images/android/menu_bg_ls.png');
+                background-size: 100% 100%;
+                background-repeat: no-repeat;
+                background-position: center center;
+                overflow: hidden !important;
+            }
+        </style>
+
+    </head>
+    <body style="">
+        <div data-role="page" id="page1">
+
+            <table class="menu_iconsdiv" id="menu">
+                <!--                    Here we display Menu(Apps) Icons  -->
+            </table>
+            <div class="icon_settings" onclick="document.location='settings.html'">
+
+            </div>
+            <div id="ticker" style="width: 100%;height: 44px;margin-bottom: 0px;padding-bottom: 0px;position:absolute;bottom:0; text-shadow: none;font-weight: normal;" class="ui-bar-c" data-role="footer">
+                <!--                <marquee id="ticker" style="width: 100%;height: 44px;line-height: 44px;"></marquee> -->
+            </div>
+
+        </div>
+
+    </body>
+</html>

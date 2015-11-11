@@ -1,0 +1,121 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Jacobs login page</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"> 
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet"  href="css/jquery.mobile-1.2.0.css" />
+        <link rel="stylesheet"  href="css/jquery.mobile.custom-1.2.0.css" /> 
+        <link rel="stylesheet"  href="css/custome.css" />
+        <style type="text/css">
+            .ui-checkbox-on .ui-icon{
+                display: none;
+            }
+            .ui-checkbox-off .ui-icon{
+                display: none;
+            }
+            .tstitle{
+                /*margin-left: -35px;*/
+            }
+            .task_type{
+                margin-left: -35px;
+            }
+
+
+            .approval_header{
+                /*background: linear-gradient(to bottom, rgba(65, 96, 196, 0.91) 0%, #4060C3 2%, #365AB8 25%, #164890 76%, #0D4385 98%, rgba(12, 66, 132, 0.91) 100%) repeat scroll 0 0 transparent;*/
+                color: white;
+                font-size: 14px;
+                font-weight: bold;
+                /*margin: 0 3% 0 0;*/
+                /*padding-top: 2px;*/
+                text-shadow: none;
+                width: 100%;
+                height: 30px;
+                padding: 0px !important;
+                margin: 0px;
+                text-align: left;
+                line-height: 30px;
+
+                background: -moz-linear-gradient(top, rgba(65,96,196,0.91) 0%, rgba(64,96,195,1) 2%, rgba(54,90,184,1) 25%, rgba(22,72,144,1) 76%, rgba(13,67,133,1) 98%, rgba(12,66,132,0.91) 100%);
+                background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(65,96,196,0.91)), color-stop(2%,rgba(64,96,195,1)), color-stop(25%,rgba(54,90,184,1)), color-stop(76%,rgba(22,72,144,1)), color-stop(98%,rgba(13,67,133,1)), color-stop(100%,rgba(12,66,132,0.91)));
+                background: -webkit-linear-gradient(top, rgba(65,96,196,0.91) 0%,rgba(64,96,195,1) 2%,rgba(54,90,184,1) 25%,rgba(22,72,144,1) 76%,rgba(13,67,133,1) 98%,rgba(12,66,132,0.91) 100%);
+                background: -o-linear-gradient(top, rgba(65,96,196,0.91) 0%,rgba(64,96,195,1) 2%,rgba(54,90,184,1) 25%,rgba(22,72,144,1) 76%,rgba(13,67,133,1) 98%,rgba(12,66,132,0.91) 100%);
+                background: -ms-linear-gradient(top, rgba(65,96,196,0.91) 0%,rgba(64,96,195,1) 2%,rgba(54,90,184,1) 25%,rgba(22,72,144,1) 76%,rgba(13,67,133,1) 98%,rgba(12,66,132,0.91) 100%);
+                background: linear-gradient(to bottom, rgba(65,96,196,0.91) 0%,rgba(64,96,195,1) 2%,rgba(54,90,184,1) 25%,rgba(22,72,144,1) 76%,rgba(13,67,133,1) 98%,rgba(12,66,132,0.91) 100%);
+                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e84160c4', endColorstr='#e80c4284',GradientType=0 );
+            }
+            .arrow_img{
+                margin-right: 10px;
+            }
+            .type{
+                color: blue;
+                font-size: 12px;
+                font-weight: normal;
+                width: 75%;
+            }
+
+        </style>
+        <script src="js/jquery-1.8.2.js"></script> 
+        <script src="js/jquery.mobile-1.2.0.js"></script>
+
+        <link rel="stylesheet" href="css/jquery.mobile.actionsheet.css" />
+        <script type="text/javascript" src="js/jquery.mobile.actionsheet.js"></script>
+        <script src="js/constants.js"></script> 
+        <script src="js/detectos.js"></script>
+        <script src="js/hash.js"></script>
+        <script src="js/approvals.js"></script>
+    </head>
+    <body>
+        <div data-role="page" id="page1">
+            <div data-theme="c" data-role="header" data-position="fixed">
+                <a data-role="button" href="" onclick="backAction();" class="ui-btn-left buttn_bg">Back</a>
+                <a data-role="button" href="" onclick="document.location='menu.html'" class="ui-btn-right buttn_bg">Home</a>
+                <h3>Timecard Approvals</h3>
+                <p id="user_name" class="username"></p>
+            </div>
+
+            <div class="approval_segment" align="center">
+                <fieldset data-role="controlgroup" data-type="horizontal" > 
+                    <input type="radio" name="radio-view" id="radio-view-a" value="0" checked="checked"/>
+                    <label for="radio-view-a">Primary</label>
+                    <input type="radio" name="radio-view" id="radio-view-b" value="1" />
+                    <label for="radio-view-b">Secondary</label>
+
+
+                </fieldset>
+            </div><div><span onclick="clickme('+tobj.id+');"><span class="approval_arrow"></span></span></div>
+            <div id="content" data-role="fieldcontain"  class="approval_list">
+                <div class="loading_imgdiv" id="loading_screen" style="display: none;">
+                    <p class="loading_img"></p>
+                </div>
+                <!--Here we insert the list of time sheets from javascript.-->
+
+            </div>
+            <div id="content1" data-role="fieldcontain"  class="approval_list" style="display: none;">
+                <div class="loading_imgdiv" id="loading_screen1" style="display: none;">
+                    <p class="loading_img"></p>
+                </div>
+            </div>
+            <div data-role="popup" id="canceldialog" data-overlay-theme="a" data-theme="c" style="max-width:400px;">
+                <div id="cancel_dailog" class="cancel_dailogshow" data-rel="popup" data-inline="true" >
+                    <p class="daialog_header">ETS Mobile Alert</p>
+                    <p id="error_msg"> </p>
+                    <div class="cancel_dialog_line_img"></div>
+                    <div class="cancel_dialog_btn_div" align="center">
+                        <a href="" data-inline="true" data-rel="back" data-transition="flow" class="cancel_dialog_nobtn" id="dialoglink">Ok</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+    </body>
+</html>

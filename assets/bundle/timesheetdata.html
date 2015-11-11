@@ -1,0 +1,350 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">  
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name = "format-detection" content = "telephone=no" />
+        <link rel="stylesheet"  href="css/jquery.mobile-1.2.0.css" />
+        <link rel="stylesheet"  href="css/jquery.mobile.custom-1.2.0.css" /> 
+        <link rel="stylesheet"  href="css/custome.css" />
+        <script src="js/jquery-1.8.2.js"></script> 
+        <script src="js/jquery.mobile-1.2.0.js"></script>
+
+        <link rel="stylesheet" href="css/jquery.mobile.actionsheet.css" />
+        <script type="text/javascript" src="js/jquery.mobile.actionsheet.js"></script>
+        <script src="js/constants.js"></script> 
+        <script src="js/detectos.js"></script>
+        <script src="js/hash.js"></script>
+        <script src="js/timesheetdata.js"></script>
+        <script type="text/javascript">
+
+        </script>
+        <style>
+            .new_project_table_td{
+                width: 23% !important;
+            }
+            .ui-select .ui-btn{
+                vertical-align: central;
+                border: none;
+                box-shadow: none !important;
+                background: none;
+                /*background-image: url('./images/arrow.png');*/
+                background-image: url('');
+                background-size: 9px 13px;
+                background-repeat: no-repeat;
+                border-radius: 0px;
+                background-position: 100% center;
+                /*width: 50%;*/
+                float: right;
+                width: 100% !important;
+            }
+            .ui-select .ui-btn-text {
+                color: #01479C;
+                direction: ltr;
+                font-size: 14px;
+                font-weight: normal;
+                text-align: right;
+                text-indent: 0;
+                /*width: 30px;*/
+                /*left: -12px;*/
+            }
+            .ui-select .ui-btn-icon-right .ui-btn-inner, .ui-select .ui-li-has-count .ui-btn-inner {
+                padding-left: 0;
+                width: 100%;
+            }
+            .loading_img{
+                margin-top:100px;
+            }
+        </style>
+    </head>
+    <body>
+        <div data-role="page" id="page1">
+            <!--            <div data-theme="c" data-role="header" data-position="fixed">
+                            <a data-role="button" href="" onclick="backAction();" class="ui-btn-left buttn_bg">Back</a>
+                            <h3 id="header_title"></h3>
+                            <p id="user_name" class="username"></p>
+            
+                            <a id="action_menu" class="ui-btn-right action_buttn_bg" data-role="actionsheet"></a>
+                            <div>
+                                <a data-role="button" href="#" id="save_action_button"><span id="save_button">Save</span></a>
+                                <a data-role="button" href="#" id="submit_action_button"><span id="submit_button">Submit</span></a>
+                                <a data-role="button" href="#" id="delete_action_button" ><span id="delete_button" onclick="deleteTimeCard();">Delete</span></a>
+                                <a data-role="button" href="#" id="approve_action_button" onclick="actionMenuApprove();" style="display: none;">Approve</a>
+                                <a data-role="button" href="#" id="reject_action_button" onclick="actionMenuReject();" style="display: none;">Reject</a>
+                                <br/>
+                                <a data-role="button" data-rel="close" href="#">Cancel</a>
+                            </div>
+            
+                        </div>-->
+
+            <div data-theme="c" data-role="header"  data-position="fixed">
+                <a data-role="button" href="" onclick="backAction();" class="ui-btn-left buttn_bg">Back</a>
+                <h3 id="header_title"></h3>
+                <p id="user_name" class="username"></p>
+
+                <a id="action_menu" class="ui-btn-right action_buttn_bg" data-role="actionsheet"></a>
+                <div>
+                    <a data-role="button" href="#" id="save_action_button"><span id="save_button">Save</span></a>
+                    <a data-role="button" href="#" id="submit_action_button"><span id="submit_button">Submit</span></a>
+                    <a data-role="button" href="#" id="delete_action_button" ><span id="delete_button" onclick="deleteTimeCard();">Delete</span></a>
+                    <a data-role="button" href="#" id="approve_action_button" onclick="actionMenuApprove();" style="display: none;">Approve</a>
+                    <a data-role="button" href="#" id="reject_action_button" onclick="actionMenuReject();" style="display: none;">Reject</a>
+                    <br/>
+                    <a data-role="button" href="#" id="gohome_button" onclick="goHome();">Home</a>
+                    <a data-role="button" data-rel="close" href="#">Cancel</a>
+                </div>
+                <table id="week_table" class="day_names_table">
+                    <tr>
+                        <td class="day_td">
+                            Sat
+                            <div id="sat" class="day_hours">--</div>
+                        </td>
+                        <td class="day_td">
+                            Sun
+                            <div id="sun" class="day_hours">--</div>
+                        </td>
+                        <td class="day_td">
+                            Mon
+                            <div id="mon" class="day_hours">--</div>
+                        </td>
+                        <td class="day_td">
+                            Tue
+                            <div id="tue" class="day_hours">--</div>
+                        </td>
+                        <td class="day_td">
+                            Wed
+                            <div id="wed" class="day_hours">--</div>
+                        </td>
+                        <td class="day_td">
+                            Thu
+                            <div id="thu" class="day_hours">--</div>
+                        </td>
+                        <td class="day_td">
+                            Fri
+                            <div id="fri" class="day_hours">--</div>
+                        </td>
+                    </tr>
+                </table>
+                <table id="datatable_header" class="projects_table_header" cellspacing="0">
+                    <tr>
+                        <td class="projects_table_header_td">
+                            Project
+                        </td>
+                        <td class="projects_table_header_td">
+                            Task
+                        </td>
+                        <td class="projects_table_header_td">
+                            Type
+                        </td>
+                        <td class="projects_table_header_td">
+                            B/N
+                        </td>
+                        <td class="projects_table_header_td">
+                            Hrs
+                        </td>
+                        <td class="projects_table_header_td"> <!--FOR AMPM ********** AMPM BUILD *********** -->
+                            AMPM
+                        </td>
+                        <td class="projects_table_header_td dummy_td">
+
+                        </td>
+                    </tr>
+                    <!-- Here we are appending data through javascript -->
+                </table>
+                <table id="datatable_landscape_header" class="projects_table_header" cellspacing="0">
+                    <tr>
+                        <td class="review_table_header_td">
+                            Project
+                        </td>
+                        <td class="review_table_header_td">
+                            Task
+                        </td>
+                        <td class="review_table_header_td">
+                            Type
+                        </td>
+                        <td class="review_table_header_td">
+                            B/N
+                        </td>
+                        <td class="review_table_header_td">
+                            S<p class="daytotal_hrs_landscape" id="daytotal0"></p>
+                        </td>
+                        <td class="review_table_header_td">
+                            S<p class="daytotal_hrs_landscape" id="daytotal1"></p>
+                        </td>
+                        <td class="review_table_header_td">
+                            M<p class="daytotal_hrs_landscape" id="daytotal2"></p>
+                        </td>
+                        <td class="review_table_header_td">
+                            T<p class="daytotal_hrs_landscape" id="daytotal3"></p>
+                        </td>
+                        <td class="review_table_header_td">
+                            W<p class="daytotal_hrs_landscape" id="daytotal4"></p>
+                        </td>
+                        <td class="review_table_header_td">
+                            T<p class="daytotal_hrs_landscape" id="daytotal5"></p>
+                        </td>
+                        <td class="review_table_header_td">
+                            F<p class="daytotal_hrs_landscape" id="daytotal6"></p>
+                        </td>
+                        <td class="review_table_header_td">
+                            AMPM
+                        </td>
+                        <td class="review_table_header_td dummy_td">
+
+                        </td>
+                    </tr>
+                    <!--Here we are appending data through javascript-->
+                </table>
+            </div>
+
+            <div data-role="content" style="width:100%; left: 0px; padding: 0px;">
+                <!--                <table id="week_table" class="day_names_table">
+                                    <tr>
+                                        <td class="day_td">
+                                            Sat
+                                            <div id="sat" class="day_hours">--</div>
+                                        </td>
+                                        <td class="day_td">
+                                            Sun
+                                            <div id="sun" class="day_hours">--</div>
+                                        </td>
+                                        <td class="day_td">
+                                            Mon
+                                            <div id="mon" class="day_hours">--</div>
+                                        </td>
+                                        <td class="day_td">
+                                            Tue
+                                            <div id="tue" class="day_hours">--</div>
+                                        </td>
+                                        <td class="day_td">
+                                            Wed
+                                            <div id="wed" class="day_hours">--</div>
+                                        </td>
+                                        <td class="day_td">
+                                            Thu
+                                            <div id="thu" class="day_hours">--</div>
+                                        </td>
+                                        <td class="day_td">
+                                            Fri
+                                            <div id="fri" class="day_hours">--</div>
+                                        </td>
+                                    </tr>
+                                </table>-->
+                <div id="time_entry_form" style="margin-top: 0px;">
+
+
+                    <div class="loading_imgdiv" id="loading_screen" style="display: none;">
+                        <p class="loading_img"></p>
+                    </div>
+
+                    <input type="number" id="input_element" style="height: 1px;width: 1px;opacity: 1; border: none;padding: 0px;margin: 0px;"/>
+                    <div id="datatablediv">
+                        <table id="datatable" class="projects_table" cellspacing="0">
+
+                            <!-- Here we are appending data through javascript -->
+                        </table>
+                        <table id="datatable_landscape" class="projects_table_landscape" cellspacing="0">
+
+                            <!--Here we are appending data through javascript--> 
+                        </table>
+                    </div>
+
+
+                    <table class="projects_table_header">
+                        <tr id="total_hours">
+                            <td class="projects_table_row_td total_hours_td">
+                                Total Hours: --
+                            </td>
+                        </tr>
+                    </table>
+
+                    <div id="partial_week_table" style="display:none;">
+                        <table class="projects_table_header" cellspacing="0" style="">
+                            <tr>
+                                <td class="new_project_table_td">
+                                    Partial week reason
+                                </td>
+                                <td id="partial_week_td" class="projects_table_row_td">
+
+                                </td>
+                            </tr>
+
+                        </table>
+                    </div> 
+
+                    <div id="employee_comments_div" data-role="content" style="padding-bottom: 0px;">
+                        <p style="display: none;" id="employee_comment"><b>Employee Comment: </b><span><textarea id="employee_comment_box" disabled="disabled" placeholder="No comments provided" class="comments_box" maxlength="2000"></textarea></span></p>
+                        <p style="display: none;" id="approver_comment"><b>Supervisor Comment: </b><span><textarea id="supervisor_comment_box" disabled="disabled" placeholder="" class="comments_box" maxlength="2000"></textarea></span></p>
+
+                    </div>
+                </div>
+                <div id="comments_div" data-role="content" style="padding-top: 0px;">
+                    <p id="comment_label"><b> Notes: </b><textarea id="comments" placeholder="Enter Comments" class="comments_box" maxlength="2000"></textarea></p>
+                </div>
+
+                <div data-role="popup" id="canceldialog" data-overlay-theme="a" data-theme="c" style="max-width:400px;">
+                    <div id="cancel_dailog" class="cancel_dailogshow" data-rel="popup" data-inline="true" >
+                        <p class="daialog_header">ETS Mobile Alert</p>
+                        <p id="error_msg"> </p>
+                        <div class="cancel_dialog_line_img"></div>
+                        <div class="cancel_dialog_btn_div" align="center">
+                            <a href="" data-inline="true" data-rel="back" data-transition="flow" class="cancel_dialog_nobtn" id="dialoglink">Ok</a>
+                        </div>
+                    </div>
+                </div>
+                <div data-role="popup" id="confirmdialog" data-overlay-theme="a" data-theme="c" style="max-width:400px;">
+                    <div id="confirm_dailog" class="cancel_dailogshow" data-rel="popup" data-inline="true" >
+                        <p class="daialog_header">ETS Mobile Alert</p>
+                        <p id="confirm_msg"> </p>
+                        <div class="cancel_dialog_line_img"></div>
+                        <div class="cancel_dialog_btn_div" align="center">
+                            <a href="" data-inline="true" data-rel="back" data-transition="flow" class="confirm_dialog_btn" id="confirmok">Ok</a>
+                            <a href="" data-inline="true" data-rel="back" data-transition="flow" class="confirm_dialog_btn" id="confirmcancel">Cancel</a>
+                        </div>
+                    </div>
+                </div>
+                <div data-role="popup" id="certificatedialog" data-overlay-theme="a" data-theme="c" style="max-width:400px;">
+                    <div id="certify_dailog" class="cancel_dailogshow" data-rel="popup" data-inline="true" >
+                        <p class="daialog_header">Confirmation</p>
+                        <div id="certify_msg" style="color:white;font-size: 10px;text-shadow: none;width: 90%;padding: 0 5%">
+                            I am familiar with the Jacobs Timekeeping policy and understand that I must promptly and accurately include all my hours of work in my Jacobs weekly timesheet. I understand that I am entitled to rest and meal periods, depending on the length of my work day.
+
+                            I hereby certify the following:
+                            <ul>
+                                <li>All the time indicated on my timesheet this workweek is true and correct, and</li>
+                                <li>During this workweek, on each work day,</li>
+                                <ol><li>I took all meal or rest periods OR</li>
+                                    <li>I voluntarily waived one or more of those meal and/or rest periods OR</li>
+                                    <li>I recorded an hour of pay for each day on which I was prevented from taking either a meal period or one or more rest periods.</li>
+                                </ol>
+                            </ul>
+                            You must either "Agree" or "Disagree" with this certification by clicking on the appropriate button below. For additional information on rest and meal periods, click. <span style="font-weight:bold;" onclick="openMealBreakPolicy()"><u>Jacobs Policy</u></span>
+
+                            Any questions regarding this certification should be directed to payroll-pasadena@jacobs.com
+
+                            If you need to make changes to your timesheet, select the "Disagree" button to take you back to your timesheet, make the corrections and Submit your timesheet again.
+
+                            If you select "Disagree" because you were prevented from taking a rest or meal period, please correct and re-submit your timesheet as follows:
+                            <ol>
+                                <li>Record one hour for each day that one or both rest period(s) were prevented;</li>
+                                <li>Record one hour for each meal period that was prevented,</li>
+                                <li>Charge the additional time to project 520000 (overhead), PayType "NO MEAL/REST",</li>
+                            </ol>
+                        </div>
+                        <div class="cancel_dialog_line_img"></div>
+                        <div class="cancel_dialog_btn_div" align="center">
+                            <a href="" data-inline="true" data-rel="back" data-transition="flow" class="confirm_dialog_btn" id="agree">I Agree</a>
+                            <a href="" data-inline="true" data-rel="back" data-transition="flow" class="confirm_dialog_btn" id="disagree">Disagree</a>
+                        </div>
+                    </div>
+                </div>
+                <input id="input_field" type="number" style="display: none;" />
+            </div>
+        </div>
+        <!--        <div data-role="page" id="page2">
+                    
+                </div>-->
+    </body>
+</html>

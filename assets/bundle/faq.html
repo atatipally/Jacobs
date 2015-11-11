@@ -1,0 +1,112 @@
+<!--
+ To change this template, choose Tools | Templates
+ and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet"  href="css/jquery.mobile-1.2.0.css" />
+        <link rel="stylesheet"  href="css/jquery.mobile.custom-1.2.0.css" />
+        <!--               <link rel="stylesheet"  href="css/custome.css" />-->
+        <script src="js/jquery-1.8.2.js"></script>
+        <script src="js/jquery.mobile-1.2.0.js"></script>
+        <script src="js/constants.js"></script>
+        <style>
+            /*            p {
+             text-indent: 30px;
+             font-size: 12px;
+             }*/
+            #totalContentFaq p{
+                font-size: 12px;
+                margin-top: 5px;
+                margin-left: 3%;
+                font-style:italic;
+            }
+
+            #totalContentFaq h2{
+                margin: 0px;
+                font-size: 12px;
+                font-family: sans-serif;
+                color:#01479c;
+            }
+            #totalContentFaq h3{
+                margin: 0px;
+                font-size: 18px;
+                font-family: sans-serif;
+            }
+            ol
+            {
+                font-size: 12px;padding-left:2%;list-style: none;
+            }
+            ul{
+                text-shadow: none;
+                color: black;
+            }
+
+            .ui-bar-c {
+                background: transparent;
+                height: 44px;
+                background-image: url('./images/common/header.png');
+                background-size: 100% 44px;
+                border: none;
+            }
+        </style>
+        <script>
+            $(document).ready(function(){
+                                      
+            });
+                    
+            function backAction(){
+                document.location='settings.html';
+            }
+        </script>
+    </head>
+    <body>
+        <div data-role="page" id="page1">
+            <div data-theme="c" data-role="header" data-position="fixed">
+                <a data-role="button" href="#" onclick="backAction();" class="ui-btn-left buttn_bg">Back</a>
+                <h3>FAQ</h3>
+                <!--<p id="user_name" class="username"></p>-->
+            </div>
+            <div data-role="content" id="totalContentFaq">
+                <ol>
+                    <li><h2>Q: How do I create a new Timecard?</h2>
+                        <p>A: Launch the Jacobs Mobile App on your mobile device by pressing the Jacobs Apps2Go icon.  Enter your Username and Password and press the Sign in button.  Next, press theTimecards icon on the main page.  Now, press the Newbutton in the upper right hand corner of the screen.   Select the period-end date for the timecard you wish to enter.  At this point you can optionally, select a timecard template.  Press the Create button in the upper right hand corner of the screen and begin entering your timecard lines.</p>
+                    </li>
+                    <li><h2>Q: How do I Save a Timecard?</h2>
+                        <p>A: Anytime you have entered or changed information on your timecard you should save your work.  While you have your timecard open on the page listing all of your lines for the period, select the icon at the top right corner of the screen.  A window will appear giving youoptions to choose from.   Choose the Save button to save your timecard information. An ETS Mobile Alert will appear confirming you have saved the timecard.  Press the Ok button to dismiss this alert.</p>
+                    </li>
+                    <li><h2>Q: How do I delete a Timecard?</h2>
+                        <p>A: While you are in the main timecard screen which displays your timecard lines, select the icon at the top right corner of the screen.  A window will appear giving you options.  Select the Delete button to delete your timecard.  An ETS Mobile Alert will appear confirming you have deleted the timecard.  Press the Ok button to dismiss this alert. You will not be able to retrieve the timecard information after it has been deleted.</p>
+                        <p><strong>Note:</strong> You can only delete working timecards.  Previously approved timecards cannot be deleted.</p>
+                    </li>
+                    <li><h2>Q: How do I submit a completed Timecard?</h2>
+                        <p>A: Be sure that you have entered all of your time for the timecard period.  While you are in the main timecard screen which displays your timecard lines, select the icon at the top right corner of the screen.  A window will appear giving you options.  Select the Submit button to submit your timecard.  An ETS Mobile Alert will appear confirming you have submitted the timecard.  Press the Ok button to dismiss this alert.</p>
+                        <p><strong>Note:</strong> You will not be able to make changes to this timecardonce you have submitted it.</p>
+                    </li>
+                    <li><h2>Q: How do I enter the hours worked for a specific day?</h2>
+                        <p>A: From the Timecards screen, select a Working timecard.  The days of the week appear in a row at the top of the timecard.   Select the desired day of the week by pressing one of the days in this row.  Now, press anywhere in the timecard line you wish to enter time for.   The cursor will flash in the Hrs column and the keyboard will appear allowing you to enter hours for the timecard line.  Once you have entered the hours, press the Done button on the keyboard to dismiss it.  Remember to save your timecard after making any changes.</p>
+                    </li>
+                    <li><h2>Q: How do I enter multiple lines of hours for different tasks?</h2>
+                        <p>A: From the Timecards screen, select a Working timecard.  The days of the week appear in a row at the top of the timecard.   Select the desired day of the week by pressing one of the days in this row. Now, press anywhere in the row that says + Add Line Item.  The Add Time Entry screen will appear allowing you to enter the details for your new timecard line.  When you have completed your entry for your new line, press the Done button at the top right corner of the screen and you will be returned to the main timecard screen.   Your new timecard line now appears at the bottom of the list.  Remember to save your timecard after making any changes.</p>
+                    </li>
+                    <li><h2>Q: Will I receivetimecard entry reminders/notifications?</h2>
+                        <p>A: Yes.   If you have not entered timecard hours for the day, you will be reminded to enter your time.   Notification reminderswill be displayed on your mobile device.  To turn off mobile notification reminders, go to Settings by pressing the gear icon in the lower right hand corner of the main screen.  Next, click the user preferences box.  Now, uncheck the Enable Notifications check box.</p>
+                    </li>
+                    <li><h2>Q: Can I make changes to an approved timecard?</h2>
+                        <p>A: No, once a timecard is submitted changes cannot be made.</p>
+                    </li>
+                    <li><h2>Q: Can I record PTO or Holiday hours in advance?</h2>
+                        <p>A: Yes.  You will need to add a new line item to your timecard.  Enter the PTO or Holiday code and enter the number of PTO or Holiday hours. You will also need to give a reason for the advance timecard entry by typing comments in the Notes box at the bottom on the main timecard screen.</p>
+                    </li>
+                    <li><h2>Q: How do I edit a timecard that has already been submitted/completed?</h2>
+                        <p>A: Once a timecard is submitted no changes can be made to it.</p>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </body>
+</html>
