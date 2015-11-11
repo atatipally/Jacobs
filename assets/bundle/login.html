@@ -1,0 +1,193 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Jacobs login page</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"> 
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet"  href="css/jquery.mobile-1.2.0.css" />
+        <link rel="stylesheet"  href="css/jquery.mobile.custom-1.2.0.css" /> 
+        <link rel="stylesheet"  href="css/custome.css" />
+        <script src="js/jquery-1.8.2.js"></script> 
+        <script src="js/jquery.mobile-1.2.0.js"></script>
+        <script src="js/constants.js"></script> 
+        <script src="js/detectos.js"></script>
+        <script src="js/hash.js"></script>
+        <script src="js/login.js"></script>
+        <style>
+            .ui-body-c, .ui-overlay-c{
+                background-image: url('./images/android/bg_blue.png');
+                background-size: 100% 100%;
+                background-repeat: no-repeat;
+                background-position: center center;
+                overflow: hidden;
+            }
+            @media only screen and (-webkit-device-pixel-ratio:.75) and (orientation : portrait){
+                /* Put CSS for low density (ldpi) Android layouts in here */
+                .ui-body-c, .ui-overlay-c{
+                    background-image: url('./images/android/bg_blue.png');
+                    background-size: 100% 100%;
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                }
+            }
+            @media only screen and (-webkit-device-pixel-ratio:1) and (orientation : portrait){
+                /* Put CSS for medium density (mdpi) Android layouts in here */
+                .ui-body-c, .ui-overlay-c{
+                    background-image: url('./images/ios2x/bg_blue.png');
+                    background-size: 100% 100%;
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                }
+            }
+            @media only screen and (-webkit-device-pixel-ratio:1.5) and (orientation : portrait){
+                /* Put CSS for high density (hdpi) Android layouts in here */
+                .ui-body-c, .ui-overlay-c{
+                    background-image: url('./images/android/bg_blue.png');
+                    background-size: 100% 100%;
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                }
+            }
+
+            @media only screen and (-webkit-device-pixel-ratio:.75) and (orientation : landscape){
+                /* Put CSS for low density (ldpi) Android layouts in here */
+                .ui-body-c, .ui-overlay-c{
+                    background-image: url('./images/ios2x/bg_blue_ls.png');
+                    background-size: 100% 100%;
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                }
+            }
+            @media only screen and (-webkit-device-pixel-ratio:1) and (orientation : landscape){
+                /* Put CSS for high density (hdpi) Android layouts in here */
+                .ui-body-c, .ui-overlay-c{
+                    background-image: url('./images/ios2x/bg_blue_ls.png');
+                    background-size: 100% 100%;
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                }
+            }
+            @media only screen and (-webkit-device-pixel-ratio:1.5) and (orientation : landscape){
+                /* Put CSS for high density (hdpi) Android layouts in here */
+                .ui-body-c, .ui-overlay-c{
+                    background-image: url('./images/android/bg_blue_ls.png');
+                    background-size: 100% 100%;
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                }
+            }
+
+
+            /******************************  iOS PORTRAIT  ********************************/
+            @media only screen and (device-width: 320px) and (device-height: 480px) and (orientation : portrait){
+                .ui-body-c, .ui-overlay-c{
+                    background-image: url('./images/ios2x/bg_blue.png');
+                    /*   background-size: 320px 480px;*/
+                    background-size: 100% 100%;
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                }
+            }
+            @media only screen and (device-width: 320px) and (device-height: 568px) and (orientation : portrait){
+                .ui-body-c, .ui-overlay-c{
+                    background-image: url('./images/iphone5/bg_blue.png');
+                    /*   background-size: 320px 568px;*/
+                    background-size: 100% 100%;
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                }
+            }
+            @media only screen and (device-width : 768px) and (device-height : 1024px) and (orientation : portrait){ 
+                .ui-body-c, .ui-overlay-c{
+                    background-image: url('./images/ipad/bg_blue.png');
+                    /*   background-size: 768px 1024px;*/
+                    background-size: 100% 100%;
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                }
+                .loginform{
+                    margin-top: 200px;
+                }
+            }
+            /******************************  iOS LANDSCAPE  ********************************/
+            @media only screen and (device-width: 320px) and (device-height: 480px) and (orientation : landscape){
+                .ui-body-c, .ui-overlay-c{
+                    background-image: url('./images/ios2x/bg_blue_ls.png');
+                    background-size: 100% 100%;
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                }
+            }
+            @media only screen and (device-width: 320px) and (device-height: 568px) and (orientation : landscape){
+                .ui-body-c, .ui-overlay-c{
+                    background-image: url('./images/iphone5/bg_blue_ls.png');
+                    /*   background-size: 320px 568px;*/
+                    background-size: 100% 100%;
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                }
+            }
+            @media only screen and (device-height : 768px) and (device-width : 1024px) and (orientation : landscape){
+                .ui-body-c, .ui-overlay-c{
+                    background-image: url('./images/ipad/bg_blue_ls.png');
+                    /*   background-size: 768px 1024px;*/
+                    background-size: 100% 100%;
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                }
+                .loginform{
+                    margin-top: 200px;
+                }
+            }
+            .landscape_bg{
+                background-image: url('./images/android/bg_blue_ls.png');
+                background-size: 100% 100%;
+                background-repeat: no-repeat;
+                background-position: center center;
+            }
+        </style>
+    </head>
+    <body style="background-color:#ffffff !important;">
+        <div data-role="page" >            
+            <div data-role="content" class="loginform" id="loginform_div">                   
+                <div class="company_logodiv">
+                    <p class="company_logo"></p>
+                </div>
+                <div data-role="content" class="login_box" id="fields_div">
+                    <div class="login_light_div">
+
+                    </div>
+                    <div data-role="fieldcontain" class="username_fileddiv">
+                        <input name="username" id="username" placeholder="Username"  type="text" class="input_txt_filed" autocomplete="off" autocorrect="off" value=""/>
+                    </div>
+                    <div data-role="fieldcontain" class="password_fileddiv">
+                        <input name="password" id="pwd" placeholder="Password"  type="password" class="input_txt_filed" autocomplete="off" autocorrect="off" value=""/>
+                    </div>
+
+                    <div id = "login_btn" class="login_button">
+                        Sign in
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="loading_imgdiv" id="loading_screen" style="display: none;">
+                <p class="loading_img"></p>
+            </div>
+            <div data-role="popup" id="canceldialog" data-overlay-theme="a" data-theme="c" style="max-width:300px;">
+                <div id="cancel_dailog" class="cancel_dailogshow" data-rel="popup" data-inline="true" >
+                    <p class="daialog_header">ETS Mobile Alert</p>
+                    <p id="error_msg"> </p>
+                    <div class="cancel_dialog_line_img"></div>
+                    <div class="cancel_dialog_btn_div" align="center">
+                        <a href="" data-inline="true" data-rel="back" data-transition="flow" class="cancel_dialog_nobtn" id="dialoglink">Ok</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,376 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"> 
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet"  href="css/jquery.mobile-1.2.0.css" />
+        <link rel="stylesheet"  href="css/jquery.mobile.custom-1.2.0.css" /> 
+        <link rel="stylesheet"  href="css/custome.css" />
+        <script src="js/jquery-1.8.2.js"></script> 
+        <script src="js/jquery.mobile-1.2.0.js"></script>
+        <script src="js/constants.js"></script> 
+        <script src="js/detectos.js"></script>
+        <script src="js/hash.js"></script>
+        <style>
+            .icon_home_menu:active{
+                opacity: 0.5;
+            }
+            .icon_home_menu{
+                width: 90px;
+                height: 90px;
+                background-size: 105px 105px;
+                background-repeat: no-repeat;
+                background-position: center center;
+                text-align: center;
+                /*border: 1px solid;*/
+            }
+            .icon_home_menu_titles{
+                height: 20px;
+                text-align: center;
+                color: white;
+                text-shadow: 1px 1px 3px blue;
+                line-height: 15px;
+                font-weight: bold;
+                font-size: 12px;
+                margin-top: -20px;
+            }
+            .icon_settings:active{
+                opacity: 0.5;
+            }
+            .icon_settings{
+                width: 30px;
+                height: 30px;
+                background-image: url('./images/common/settings_icon.png');
+                background-size: 20px 20px;
+                background-repeat: no-repeat;
+                background-position: center center;
+                /*margin: 40% 0 0 85%;*/
+                position:absolute;
+                bottom:40px;
+                right: 10px;
+            }
+            .ui-body-c, .ui-overlay-c{
+                background-image: url('./images/android/bg_blue.png');
+                background-size: 100% 100%;
+                background-repeat: no-repeat;
+                background-position: center center;
+            }
+            @media only screen and (-webkit-device-pixel-ratio:.75) and (orientation : portrait){
+                /* Put CSS for low density (ldpi) Android layouts in here */
+                .ui-body-c, .ui-overlay-c{
+                    background-image: url('./images/android/bg_blue.png');
+                    background-size: 100% 100%;
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                }
+            }
+            @media only screen and (-webkit-device-pixel-ratio:1) and (orientation : portrait){
+                /* Put CSS for medium density (mdpi) Android layouts in here */
+                .ui-body-c, .ui-overlay-c{
+                    background-image: url('./images/android/bg_blue.png');
+                    background-size: 100% 100%;
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                }
+            }
+            @media only screen and (-webkit-device-pixel-ratio:1.5) and (orientation : portrait){
+                /* Put CSS for high density (hdpi) Android layouts in here */
+                .ui-body-c, .ui-overlay-c{
+                    background-image: url('./images/android/bg_blue.png');
+                    background-size: 100% 100%;
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                }
+            }
+
+            @media only screen and (-webkit-device-pixel-ratio:.75) and (orientation : landscape){
+                /* Put CSS for low density (ldpi) Android layouts in here */
+                .ui-body-c, .ui-overlay-c{
+                    background-image: url('./images/ios2x/bg_blue_ls.png');
+                    background-size: 100% 100%;
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                }
+            }
+            @media only screen and (-webkit-device-pixel-ratio:1) and (orientation : landscape){
+                /* Put CSS for high density (hdpi) Android layouts in here */
+                .ui-body-c, .ui-overlay-c{
+                    background-image: url('./images/ios2x/bg_blue_ls.png');
+                    background-size: 100% 100%;
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                }
+            }
+            @media only screen and (-webkit-device-pixel-ratio:1.5) and (orientation : landscape){
+                /* Put CSS for high density (hdpi) Android layouts in here */
+                .ui-body-c, .ui-overlay-c{
+                    background-image: url('./images/android/bg_blue_ls.png');
+                    background-size: 100% 100%;
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                }
+            }
+
+
+            /******************************  iOS PORTRAIT  ********************************/
+            @media only screen and (device-width: 320px) and (device-height: 480px) and (orientation : portrait){
+                .ui-body-c, .ui-overlay-c{
+                    background-image: url('./images/ios2x/bg_blue.png');
+                    /*   background-size: 320px 480px;*/
+                    background-size: 100% 100%;
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                }
+            }
+            @media only screen and (device-width: 320px) and (device-height: 568px) and (orientation : portrait){
+                .ui-body-c, .ui-overlay-c{
+                    background-image: url('./images/iphone5/bg_blue.png');
+                    /*   background-size: 320px 568px;*/
+                    background-size: 100% 100%;
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                }
+            }
+            @media only screen and (device-width : 768px) and (device-height: 1024px) and (orientation : portrait){
+                .ui-body-c, .ui-overlay-c{
+                    background-image: url('./images/ipad/bg_blue.png');
+                    /*   background-size: 768px 1024px;*/
+                    background-size: 100% 100%;
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                }
+                .menu_iconsdiv{
+                    /*margin-top: 250px;*/
+                }
+            }
+            /******************************  iOS LANDSCAPE  ********************************/
+            @media only screen and (device-width: 320px) and (device-height: 480px) and (orientation : landscape){
+                .ui-body-c, .ui-overlay-c{
+                    background-image: url('./images/ios2x/bg_blue_ls.png');
+                    background-size: 100% 100%;
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                }
+                .menu_iconsdiv{
+                    /*margin-top: 80px;*/
+                }
+            }
+            @media only screen and (device-width: 320px) and (device-height: 568px) and (orientation : landscape){
+                .ui-body-c, .ui-overlay-c{
+                    background-image: url('./images/iphone5/bg_blue_ls.png');
+                    /*   background-size: 320px 568px;*/
+                    background-size: 100% 100%;
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                }
+                .menu_iconsdiv{
+                    /*margin-top: 80px;*/
+                }
+            }
+            @media only screen and (device-height: 768px) and (device-width : 1024px) and (orientation : landscape){
+                .ui-body-c, .ui-overlay-c{
+                    background-image: url('./images/ipad/bg_blue_ls.png');
+                    /*   background-size: 768px 1024px;*/
+                    background-size: 100% 100%;
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                }
+                .menu_iconsdiv{
+                    /*margin-top: 250px;*/
+                }
+            }
+            .ui-bar-c {
+                background: transparent;
+                border: none;
+            }
+            .menu_iconsdiv{
+                margin-top: 0px;
+            }
+            .landscape_bg{
+                background-image: url('./images/android/bg_blue_ls.png');
+                background-size: 100% 100%;
+                background-repeat: no-repeat;
+                background-position: center center;
+            }
+            @media only screen and (max-device-height : 700px) and (orientation : landscape){
+            .company_logodiv{
+                margin: -35px auto 0 auto !important;
+                padding: 0 0 20px 0 !important;
+                width: 80%;
+            }
+            }
+            /*            .ui-header{
+                            margin-top: -8px;
+                        }
+                        .ui-title {
+                            padding-top: 7px !important;
+                        }*/
+            table tr:first-child td:first-child {
+                -moz-border-radius-topleft:10px;
+                -webkit-border-top-left-radius:10px;
+                border-top-left-radius:10px
+            }
+
+            table tr:last-child td:last-child {
+                -moz-border-radius-topright:10px;
+                -webkit-border-top-right-radius:10px;
+                border-top-right-radius:10px
+            }
+            table tr:last-child td:first-child {
+                -moz-border-radius-bottomleft:10px;
+                -webkit-border-bottom-left-radius:10px;
+                border-bottom-left-radius:10px
+            }
+
+            table tr:last-child td:last-child {
+                -moz-border-radius-bottomright:10px;
+                -webkit-border-bottom-right-radius:10px;
+                border-bottom-right-radius:10px
+            }
+            .arrow{
+                background:url('./images/arrow.png')no-repeat right center; 
+                background-size: 9px 13px;
+                background-position: 95% center;
+            }
+            .texture_body{
+                background:url('./images/bg.png') no-repeat;
+                background-size: 100% 100%;
+            }
+            .texture_header{
+                background: transparent;
+                height: 44px;
+                background-image: url('./images/common/header.png');
+                background-size: 100% 44px;
+                border: none;
+            }
+            .new_project_table_td{
+                font-family: Helvetica;
+                font-weight: bold;
+            }
+
+        </style>
+        <script>
+            $(document).ready(function(){
+                localStorage.backURI = "usefulinfo.html";
+                switch(window.orientation){  
+                    case -90:
+                    case 90:
+                        window.onorientationchange();
+                            
+                }
+            });
+            function showPolicies(){
+                $(".ui-bar-c").removeClass("ui-bar-c").addClass("texture_header");
+                $("#logo").hide();
+                $(".ui-body-c").removeClass("ui-body-c").removeClass("ui-overlay-c").addClass("texture_body");
+                $("#menu").hide();
+                $("#policy_menu").show();
+            }
+            function showInfo(policy){ 
+                //policy = spoc/trvl/tmkp/expns
+                if(isMobile.Android()){
+                    Android.openUsefulInfo(policy);
+                }else if(isMobile.iOS()){
+                    window.location = BASE_DELI_MITER+'openinfo'+DELI_MITER+policy;
+                }
+            }
+            
+            window.onorientationchange = function() {
+                if(isMobile.Android()){
+                    switch(window.orientation) 
+                    {  
+                        case -90:
+                        case 90:
+                            //landscape
+                            $(".ui-body-c").removeClass("ui-body-c").removeClass("ui-overlay-c").addClass("landscape_bg");
+                            $("#logo").removeClass("company_logodiv").addClass("company_logodiv_ls");
+                            //                            $(".menu_iconsdiv").css("margin-top","100px");
+                            break; 
+                        default:
+                            //portrait
+                            $(".landscape_bg").addClass("ui-body-c").addClass("ui-overlay-c").removeClass("landscape_bg");
+                            $("#logo").removeClass("company_logodiv_ls").addClass("company_logodiv");
+                        //                            $(".menu_iconsdiv").css("margin-top","130px");
+                }
+            }
+        }
+
+        function backAction(){
+            if ($("#menu").is(":visible")){
+                document.location='menu.html';
+            }else{
+                $(".texture_header").removeClass("texture_header").addClass("ui-bar-c");
+                $("#logo").show();
+                $(".texture_body").addClass("ui-body-c").addClass("ui-overlay-c").removeClass("texture_body");
+                $("#menu").show();
+                $("#policy_menu").hide();
+            }
+        }
+        </script>
+    </head>
+    <body style="">
+        <div data-role="page" id="page1">
+            <div data-theme="c" data-role="header" data-position="">
+                <a data-role="button" href="#" onclick="backAction();" class="ui-btn-left buttn_bg">Back</a>
+                <a data-role="button" href="" onclick="document.location='menu.html'" class="ui-btn-right buttn_bg">Home</a>
+            </div>
+            <div class="company_logodiv" id="logo">
+                <p class="company_logo"></p>
+            </div>
+            <table class="menu_iconsdiv" id="menu">
+                <tr>
+                    <td class="icon_home_menu" style="background-image: url('./images/common/outages_icon.png');" onclick="location.href='tobedone.html';"></td>
+                    <td class="icon_home_menu" style="background-image: url('./images/common/policy_icon.png');" onclick="showPolicies()"></td>
+                    <td class="icon_home_menu" style="background-image: url('./images/common/pto_icon.png');" onclick="location.href='pto.html';"></td>
+                </tr>
+                <tr>
+                    <td class="icon_home_menu_titles" >Outages</td>
+                    <td class="icon_home_menu_titles" >Policies</td>
+                    <td class="icon_home_menu_titles" >PTO Balance</td>
+                </tr>
+                <tr>
+                    <td class="icon_home_menu" style="background-image: url('./images/common/spoc_icon.png');" onclick="location.href='tobedone.html';"></td><!--showInfo('spoc')-->
+                </tr>
+                <tr>
+                    <td class="icon_home_menu_titles" >Useful Contacts</td>
+                </tr>
+            </table>
+            <table id="policy_menu" class="new_project_table" cellspacing="0" style="border-radius: 10px;display: none;width:90%;">
+                <thead></thead>
+                <tr>
+                    <td class="new_project_table_td arrow" onclick="showInfo('expns')">
+                        Expense Guidelines
+                    </td>
+                </tr>
+                <tr>
+                    <td class="new_project_table_td arrow" onclick="showInfo('tmkp')">
+                        Timekeeping Policy
+                    </td>
+                </tr>
+                <tr>
+                    <td class="new_project_table_td arrow" onclick="showInfo('trvl')">
+                        Travel Policy
+                    </td>
+                </tr>
+            </table>
+            <!--            <table class="menu_iconsdiv" id="policy_menu" style="display: none;">
+                            <tr>
+                                <td class="icon_home_menu" style="background-image: url('./images/common/policy_icon.png');" onclick="showInfo('trvl')"></td>
+                                <td class="icon_home_menu" style="background-image: url('./images/common/policy_icon.png');" onclick="showInfo('tmkp')"></td>
+                                <td class="icon_home_menu" style="background-image: url('./images/common/policy_icon.png');" onclick="showInfo('expns')"></td>
+                            </tr>
+                            <tr>
+                                <td class="icon_home_menu_titles" >Travel Policy</td>
+                                <td class="icon_home_menu_titles" >Timekeeping Policy</td>
+                                <td class="icon_home_menu_titles" >Expense Policy</td>
+                            </tr>
+                        </table>-->
+        </div>
+
+    </body>
+</html>

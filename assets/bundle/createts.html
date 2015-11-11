@@ -1,0 +1,86 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1"> 
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet"  href="css/jquery.mobile-1.2.0.css" />
+        <link rel="stylesheet"  href="css/jquery.mobile.custom-1.2.0.css" /> 
+        <link rel="stylesheet"  href="css/custome.css" />
+        <script src="js/jquery-1.8.2.js"></script> 
+        <script src="js/jquery.mobile-1.2.0.js"></script>
+        <script src="js/constants.js"></script> 
+        <script src="js/detectos.js"></script>
+        <script src="js/hash.js"></script>
+        <script src="js/createts.js"></script>
+        <style>
+            table tr:first-child td:first-child {
+                -moz-border-radius-topleft:10px;
+                -webkit-border-top-left-radius:10px;
+                border-top-left-radius:10px
+            }
+
+            table tr:last-child td:last-child {
+                -moz-border-radius-topright:10px;
+                -webkit-border-top-right-radius:10px;
+                border-top-right-radius:10px
+            }
+            table tr:last-child td:first-child {
+                -moz-border-radius-bottomleft:10px;
+                -webkit-border-bottom-left-radius:10px;
+                border-bottom-left-radius:10px
+            }
+
+            table tr:last-child td:last-child {
+                -moz-border-radius-bottomright:10px;
+                -webkit-border-bottom-right-radius:10px;
+                border-bottom-right-radius:10px
+            }
+        </style>
+    </head>
+
+    <body>
+        <div data-role="page" id="page1">
+            <div data-theme="c" data-role="header" data-position="fixed">
+                <a data-role="button" href="" onclick="create()" class="ui-btn-right buttn_bg" style="display:none;" id="create">Create</a>
+                <a data-role="button" href="" onclick="next()" class="ui-btn-right buttn_bg" id="next">Next</a>
+                <a data-role="button" href="" onclick="backAction();" class="ui-btn-left buttn_bg" id="cancel_create">Cancel</a>
+                <a data-role="button" href="" onclick="cancelDate()" class="ui-btn-left buttn_bg" id="cancel_date">Cancel</a>
+                <h3>New Timecard</h3>
+                <p id="user_name" class="username"></p>
+            </div>
+            <div data-role="content" style="padding: 0px; width: 100%;margin-top: 0px;" id="fields_div">
+                <div id="date_select" style="margin-top: -9px;">
+                    <!--                    Here we display Date List -->
+                    <div class="loading_imgdiv" id="loading_screen" style="display: none;">
+                        <p class="loading_img"></p>
+                    </div>
+                </div>
+                <div id="template_select" style="margin-top: -9px;display:none;">
+                    <!--                    Here we display Template List -->
+                    <div class="loading_imgdiv" id="loading_screen1" style="display: none;">
+                        <p class="loading_img"></p>
+                    </div>
+                </div>
+
+                <div data-role="popup" id="canceldialog" data-overlay-theme="a" data-theme="c" style="max-width:400px;">
+                    <div id="cancel_dailog" class="cancel_dailogshow" data-rel="popup" data-inline="true" >
+                        <p class="daialog_header">ETS Mobile Alert</p>
+                        <p id="error_msg"> </p>
+                        <div class="cancel_dialog_line_img"></div>
+                        <div class="cancel_dialog_btn_div" align="center">
+                            <a href="" data-inline="true" data-rel="back" data-transition="flow" class="cancel_dialog_nobtn" id="dialoglink">Ok</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div data-role="content">
+
+            </div>
+        </div>
+    </body>
+</html>

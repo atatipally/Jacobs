@@ -1,0 +1,165 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Jacobs login page</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1"> 
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet"  href="css/jquery.mobile-1.2.0.css" />
+        <link rel="stylesheet"  href="css/jquery.mobile.custom-1.2.0.css" /> 
+        <link rel="stylesheet"  href="css/custome.css" />
+        <style>
+            .ui-header .ui-title, .ui-footer .ui-title {
+                margin-bottom: 0;
+                margin-left: 0;
+                margin-right: 0;
+                margin-top: 15px !important;
+                text-shadow: none;
+            }
+            .ui-header{
+                margin-top: -15px;
+            }
+            .ui-title {
+                padding-top: 7px !important;
+            }
+            table tr:first-child td:first-child {
+                -moz-border-radius-topleft:10px;
+                -webkit-border-top-left-radius:10px;
+                border-top-left-radius:10px
+            }
+
+            table tr:last-child td:last-child {
+                -moz-border-radius-topright:10px;
+                -webkit-border-top-right-radius:10px;
+                border-top-right-radius:10px
+            }
+            table tr:last-child td:first-child {
+                -moz-border-radius-bottomleft:10px;
+                -webkit-border-bottom-left-radius:10px;
+                border-bottom-left-radius:10px
+            }
+
+            table tr:last-child td:last-child {
+                -moz-border-radius-bottomright:10px;
+                -webkit-border-bottom-right-radius:10px;
+                border-bottom-right-radius:10px
+            }
+        </style>
+
+        <script src="js/jquery-1.8.2.js"></script> 
+        <script src="js/jquery.mobile-1.2.0.js"></script>
+        <script src="js/constants.js"></script> 
+        <script src="js/detectos.js"></script>
+        <script src="js/hash.js"></script>
+        <script>
+            var baseURL = connectionURL;
+            if(localStorage.currentURL == "1"){
+                baseURL = altConnectionURL;
+            }
+            $(document).ready(function(){
+                $("#datatable").hide();
+                $("#loading_screen").show();
+                var userId = localStorage.userid;
+                $("#user_name").text(localStorage.username);
+                var hash = getHash();
+                var url = baseURL+'GetPTO'; //'https://etsmobile.jacobs.com/restful/GetPrimaryApprovals_1'
+                var params = '{\"resource_id":\"'+userId+'\",\"hash":\"'+hash+'\"}';
+                //  show();
+                if(isMobile.iOS()){
+                    window.location = BASE_DELI_MITER+'ptorequest'+DELI_MITER+userId+DELI_MITER+hash;
+                }
+                else{
+                    $.ajax({
+                        url: url,
+                        type: 'GET',
+                        dataType: 'jsonp',
+                        data:'ptorequest='+params,
+                        timeout: 30000,
+                        async: false,
+                        success: function (data, textStatus, xhr) {
+                            showBalance(data);
+                        },
+                        error: function (request, status, error) {
+                            $("#loading_screen").hide();
+                            //alert(error);
+                            $("#error_msg").text(error);
+                            $("#canceldialog").popup('open');
+                        }
+ 
+                    });
+                }
+ 
+            });
+            function showBalance(data){
+                data = urldecode(data);
+                var response = JSON.parse(data);
+                if(response.response == 'success'){
+                    $("#datatable").show();
+                    $("#loading_screen").hide();
+                    var resdata = response.data;
+                    for (var i=0;i<resdata.length;i++){
+                        var obj = resdata[i];
+                        $("#value").text(obj.COMP_TIME);
+                    }
+                }else{
+                    var dataObj = response.data;
+                    // alert('Error : '+dataObj.status);
+                    $("#error_msg").text(dataObj.status);
+                    $("#canceldialog").popup('open');
+                }
+            }
+            function backAction(){
+                document.location='usefulinfo.html';
+            }
+            function urldecode(str) {
+                return decodeURIComponent((str+'').replace(/\+/g, '%20'));
+            }
+ 
+        </script>
+    </head>
+    <body>
+        <div data-role="page" id="page1">
+            <div data-theme="c" data-role="header">
+                <a data-role="button" href="" onclick="backAction();" class="ui-btn-left buttn_bg">Back</a>
+                <h3>PTO Balance</h3>
+                <p id="user_name" class="username"></p>
+            </div>
+
+
+            <div data-role="content">
+                <table id="datatable" class="new_project_table" cellspacing="0" style="border-radius: 10px; margin-top: 0px;">
+                    <thead></thead>
+
+                    <tr>
+                        <td class="new_project_table_td">
+                            PTO Balance
+                        </td>
+                        <td class="new_project_table_td">
+                            <p id="value" style="width: 80%;text-align: right;color: gray;"></p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="loading_imgdiv" id="loading_screen" style="display: none;">
+                <p class="loading_img"></p>
+            </div>
+
+            <div data-role="popup" id="canceldialog" data-overlay-theme="a" data-theme="c" style="max-width:400px;">
+                <div id="cancel_dailog" class="cancel_dailogshow" data-rel="popup" data-inline="true" >
+                    <p class="daialog_header">ETS Mobile Alert</p>
+                    <p id="error_msg"> </p>
+                    <div class="cancel_dialog_line_img"></div>
+                    <div class="cancel_dialog_btn_div" align="center">
+                        <a href="" data-inline="true" data-rel="back" data-transition="flow" class="cancel_dialog_nobtn" id="dialoglink">Ok</a>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </body>
+</html>

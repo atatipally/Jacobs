@@ -1,0 +1,52 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1"> 
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet"  href="css/jquery.mobile-1.2.0.css" />
+        <link rel="stylesheet"  href="css/jquery.mobile.custom-1.2.0.css" /> 
+        <link rel="stylesheet"  href="css/custome.css" />
+        <script src="js/jquery-1.8.2.js"></script> 
+        <script src="js/jquery.mobile-1.2.0.js"></script>
+        <script src="js/constants.js"></script> 
+        <script src="js/detectos.js"></script>
+        <script src="js/hash.js"></script>
+        <script src="js/timesheet.js"></script>
+
+    </head>
+    <body>
+        <div data-role="page" id="page1">
+            <div data-theme="c" data-role="header" data-position="fixed">
+                <a data-role="button" href="#" onclick="document.location='createts.html'" class="ui-btn-right buttn_bg">New</a>
+                <a data-role="button" href="#" onclick="document.location='menu.html'" class="ui-btn-left buttn_bg">Back</a>
+                <h3>Timecards</h3>
+                <p id="user_name" class="username"></p>
+            </div>
+            <div  data-role="content" style="padding:0px;margin-top: 0px;">
+                <ul id="content" data-role="listview" data-divider-theme="d" data-inset="true" style="margin-top: 0px;">
+
+                    <!--      Here we insert the list of time sheets from javascript.      -->
+                </ul>  
+
+            </div>
+            <div class="loading_imgdiv" id="loading_screen" style="display: none;">
+                <p class="loading_img"></p>
+            </div>
+              <div data-role="popup" id="canceldialog" data-overlay-theme="a" data-theme="c" style="max-width:400px;">
+                <div id="cancel_dailog" class="cancel_dailogshow" data-rel="popup" data-inline="true" >
+                    <p class="daialog_header">ETS Mobile Alert</p>
+                    <p id="error_msg"> </p>
+                    <div class="cancel_dialog_line_img"></div>
+                    <div class="cancel_dialog_btn_div" align="center">
+                        <a href="" data-inline="true" data-rel="back" data-transition="flow" class="cancel_dialog_nobtn" id="dialoglink">Ok</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

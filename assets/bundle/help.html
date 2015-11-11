@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html>
+    <head>        
+        <meta http-equiv="X-UA-Compatible" content="IE=9">
+        <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'/>
+        <!--<link rel="icon" type="image/png" href="images/bmo-icon.jpg" />-->
+        <title>Jacobs Mobile ETS - Quick Start Guide</title> 
+        <link rel="stylesheet"  href="css/jquery.mobile-1.2.0.css" />
+        <link rel="stylesheet"  href="css/jquery.mobile.custom-1.2.0.css" />
+        <script src="js/jquery-1.8.2.js"></script>
+        <script src="js/jquery.mobile-1.2.0.js"></script>
+        <style type="text/css">
+            #totalContent p,ul
+            {
+                font-size: 12px;
+            }
+            #totalContent ol
+            {
+                font-size: 12px;padding-left:2%;
+            }
+            #totalContent ol li
+            {
+                text-align: center;
+            }
+            #totalContent ol li ul li
+            {
+                text-align: left;
+            }
+            #totalContent ol li p{text-align: left;}
+            #totalContent h2
+            {
+                margin: 0px;
+                font-size: 16px;
+                font-family: sans-serif;
+            }
+            #totalContent h3
+            {
+                margin: 0px;
+                font-size: 18px;
+                font-family: sans-serif;
+                color:#01479c;
+            }
+            #totalContent .images
+            {
+                max-width: 100%;
+                /*alignment-adjust: middle;*/
+            }
+
+
+            .ui-bar-c {
+                background: transparent;
+                height: 44px;
+                background-image: url('./images/common/header.png');
+                background-size: 100% 44px;
+                border: none;
+            }
+            .liststyle{list-style: none;}
+            #totalContent a{font-size:12px;text-decoration: underline;color:#01479c; }
+            
+        </style>
+        <script src="jquery/jquery-1.10.0.min.js"></script>
+        <script src="jquery/jquery.mobile-1.3.2.js"></script>
+        <script>
+            $(document).ready(function(){
+                                  
+            });
+            function changeContent(id){
+                $("#helptable").hide();
+                $("#content").show();
+                $("li").hide();
+                $("ul li:nth-child("+id+")").show();
+            }
+                
+                
+            function backAction(){
+                document.location='settings.html';
+                /*                  if ($('#helptable').css('display') == 'none') {
+                    $('#helptable').show();
+                    $("#content").hide();
+                }
+                else{
+                    document.location='settings.html';
+                }*/
+            }
+        </script>
+
+    </head>
+    <body>
+        <div data-role="page">
+            <div data-theme="c" data-role="header" data-position="fixed">
+                <a data-role="button" href="#" onclick="backAction();" class="ui-btn-left buttn_bg">Back</a>
+                <h3>Help</h3>
+                <!--<p id="user_name" class="username"></p>-->
+            </div>
+            <div data-role="content" id="totalContent">
+                <h2>Introduction</h2>
+                <p>This quick start guide provides instructions on how to use the basic features of the Jacobs Mobile App, including:</p>
+                <ul >
+                    <li>Launching and logging into the application</li>
+                    <li>Creating, modifying, saving and submitting timecards</li>
+                    <li>Approving and rejecting timecards</li>
+                    <li>Viewing your PTO Balance</li>
+                    <li>Viewing Jacobs&#8217;s policies</li>
+                    <li>Configuring user preferences</li>
+
+                </ul>
+                <h2 >Mobile Device -Installation Requirements</h2>
+                <ul >
+                    <li>Mobile devices currently supported
+                        <ul style="list-style: none;">
+                            <li>iOS - iPhone, iPad, iPad mini, iPod Touch</li>
+                            <li>Android OS - mobile phones, devices and tablets</li>
+                        </ul>
+                    </li>
+                    <li>iOS Build - .ipa - iOS application file</li>
+                    <li>Android Build - .apk - Android application file</li>
+                </ul>
+                <h3>Launching and Logging into the Jacobs Mobile App</h3>
+                <p>To launch the application, find and press the Jacobs Apps2Go Icon on your mobile device.  The application will open.</p>
+                <ol class="liststyle"><li><img class="images" src="./help_images/Jacobs_home.png" ></li></ol>
+                <p>Put your finger in the Username field, you will be presented with a keyboard.  Type your Username and Password and press the Sign in button:</p>
+                <ol class="liststyle"><li><img class="images" src="./help_images/login.png"><img class="images" src="./help_images/loginEnter.png"></ol></li>
+                <p>Upon successful entry of your login credentials, you will be presented with the following screen:</p>
+                <ol class="liststyle"><li><img class="images" src="./help_images/jacobsmainpage.png"></ol></li>
+                <h3>Timecards - Creating, modifying, saving, submitting timecards</h3>
+                <p>In this section we will review creating a new timecard and entering, modifying and deleting timecard lines.</p>
+                <p><b>Steps to create a New Timecard</b></p>
+                <ol>
+                    <li >
+                        <p>From the Home screen press the Timecards icon</p>
+                        <img src="./help_images/Timesheetsicon.png">
+                        <p>Seven of your previously entered and working timecards will be displayed as follows:</p>
+                        <img class="images"  src="./help_images/workingtimesheet.png">
+                    </li>
+                    <li>
+                        <p>Press the New button at the top right hand corner of the screen <span> <img src="./help_images/Newbutton.png"></span></p>
+                        <p>You will be presented with a list of timecard period end dates. </p>
+                        <img class="images" src="./help_images/Timesheetenddates.png">
+                        <p>Press the box next to the desired timecard period.  You will then be given the option to create the new timecard based upon your Default Timecard Template (Created in ETS) or based upon your Last Timecard.</p>
+                        <img class="images" src="./help_images/Newtimesheet.png">
+                        <p>To create your timecard based upon your previous timecard, press the square box next to the Last Timecard line </p>
+                        <p><span><img src="./help_images/Timecardline.png"></span> and press the Create button in the upper right hand corner of the screen </p>
+                        <img src="./help_images/Createbutton.png">
+                    </li>
+                    <li><p>Here you will see the timecard entry screen for the period you selected with the timecard lines copied from your last timecard.</p>
+                        <img class="images" src="./help_images/Timesheetentry.png">
+                    </li>
+                    <li>
+                        <p>At the top of the timecard, you will see a list of days.  To simply enter hours for the existing lines in your timecard, first select the day of the week for which you wish to enter time by pressing the desired day.  The day you have selected will now be highlighted.</p>
+                        <img class="images" src="./help_images/Toplistofdays.png">
+                    </li>
+                    <li>
+                        <p>Now, place your finger anywhere in a line of your timecard.The cursor will blink in the Hrs column for the line you selected and the keyboard will appear allowing you to type your hours.</p>
+                        <img class="images" src="./help_images/Typehours.png">
+                        <p>Press the <span><img src="./help_images/Donebutton.png"></span> button on the keyboard to accept your entry.  Repeat this process for each timecard line you wish to enter time for.</p>
+                        <p>Notice now that your Hours have been updated in the center section of the screen</p>
+                        <img class="images" src="./help_images/Updatescreen.png">
+                    </li>
+                    <li>
+                        <p>When you have finished entering hours, press theto-do list button at the top right hand corner of the screen.<span> <img src="./help_images/Arrowbutton.png"></span></p>
+                        <p>You will be presented with a pop-up screen allowing you to either Save, Submit or Delete your timecard. There is also a Home button to return you to the main page.</p>
+                        <img class="images" src="./help_images/Popupscreen.png">
+                        <p>Press the <span><img src="./help_images/Savebutton.png"></span> button to save your timecard.  If the save is successful, a Mobile Alert window will appear confirming this.</p>
+                        <img class="images" src="./help_images/Alertwindow.png">
+                        <p>Press the <span><img src="./help_images/Okbutton.png"></span> button to dismiss the alert.  </p>
+                    </li> 
+                </ol>
+                <p><b>Steps to Modify the additional information in an existingtimecard line</b></p>
+                <p>You may need to update additional information for your timecard lines such as the Project and Task. </p>
+                <ol class="liststyle"><li><img class="images" src="./help_images/Existingtimesheet.png"></li></ol>
+                <p>To do this:</p>
+                <ol>
+                    <li>
+                        <p>Select the blue arrow button <span> <img src="./help_images/Bluearrow.png"></span> at the far right in the timecard line you want to update. You will be presented with the Edit Time Entry screen.</p>
+                        <img class="images" src="./help_images/Edittimeentryscreen.png">
+                        <p>From this screen, you can update the following fields:</p>
+                        <ul type="disc">
+                            <li>Hours</li>
+                            <li>AM/PM</li>
+                            <li>Project</li>
+                            <li>WBS/Task</li>
+                            <li>Type</li>
+                            <li>B/N</li>
+                            <li>Func</li>
+                            <li>Shift</li>
+                            <li>Client Code</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>To enter or modify information, place your finger in the desired field.  Depending on the field type, you will either be presented with a keyboard to enter or information or a window will appear allowing you to select an entry from a list.</p>
+                    </li>
+                    <li>
+                        <p>The following screen displays the list that appears when you place your finger in the Type field</p>
+                        <img class="images" src="./help_images/Typefield.png">
+                        <p>Select one of the values by placing your finger on the desired value and pressing the  <span><img src="./help_images/Donebutton.png"></span> button.</p>
+                        <p>When you are finished modifying the timecard line, press the <span><img src="./help_images/Done_whitebutton.png"></span>  button at the top right hand corner of the screen to return to your list of timecard lines.</p>
+                        <p>Don&#8217;t forget to save your work by pressing the <span><img src="./help_images/Arrowbutton.png"></span> button and selecting <span><img src="./help_images/Savebutton.png"></span> in the pop-up window the same way we did above in step 6 of entering a New Timecard.</p>
+                    </li>
+                </ol>
+                <p><b>Steps to Add a Line Item to an Existing Timecard</b></p>
+                <p>To do this:</p>
+                <ol>
+                    <li>
+                        <p>First, select the date for which you want to enter hours by pressing the desired day on the list of days at the top of the screen</p>
+                        <img class="images" src="./help_images/Toplistofdays.png"><img class="images" src="./help_images/Addlineitem_page.png">
+                    </li>
+                    <li>
+                        <p>Now, touch anywhere in the <span><img class="images" src="./help_images/Addlineitem.png"></span> area which appears underneath your existing timecard lines.</p>
+                        <p>The Add Time Entry screen will appear allowing you to enter the details for your new timecard line.</p>
+                        <img class="images" src="./help_images/Addtimeentry.png">
+                    </li>
+                    <li>
+                        <p>Enter your timecard line details and press the <span><img src="./help_images/Done_whitebutton.png"></span> button at the top right hand corner of the screen to return to your list of timecard lines.</p>
+                        <img class="images" src="./help_images/Listoftimesheetlines.png">
+                        <p>In this example, we have entered a line for PTO.  Notice the Hours Summary area has included these hours as Fringe.</p>
+                        <img class="images" src="./help_images/Addhours_fringe.png">
+                    </li>
+                    <li>
+                        <p>Don&#8217;t forget to save your work by pressing the <span><img src="./help_images/Arrowbutton.png"></span> button and selecting <span><img src="./help_images/Savebutton.png"></span> in the pop-up window the same way we did above in step 6 of entering a New Timecard.</p>
+                    </li>
+                </ol>
+                <p><b>Steps to Delete a Timecard Line</b></p>
+                <p>To do this:</p>
+                <ol>
+                    <li>
+                        <p>Select the blue arrow button <span><img src="./help_images/Bluearrow.png"></span> at the far right in the timecard line you want to update. You will be presented with the Edit Time Entry Screen</p>
+                        <!--<img class="images" src="./help_images/Deletetimesheet.png"><img class="images"  src="./help_images/Delete_edittimesheet.png">-->
+                    </li>
+                    <li><p>Sroll to the bottom of the Edit Time Entry screen and press the <span><img src="./help_images/Deletebutton.png"></span> button. You will be returned to your list of timecard lines. The deleted line will no longer appear.</p>
+                    <img class="images" src="./help_images/Listoftimesheetlines_1.png"><img class="images" src="./help_images/Edittimeentryscreen_delete.png">
+                    </li>
+                    <li>
+                        <p>Sroll to the bottom of the Edit Time Entry screen and press the <span><img src="./help_images/Deletebutton.png"></span> button.  You will be returned to your list of timecard lines.  The deleted line will no longer appear.</p>
+                        <img class="images" src="./help_images/AfterDeletetimesheet.png">
+                    </li>
+                    <li>
+                        <p>Don&#8217;t forget to save your work by pressing the <span><img src="./help_images/Arrowbutton.png"></span>  button and selecting <span><img src="./help_images/Savebutton.png"></span> in the pop-up window the same way we did above in step 6 of entering a New Timecard.</p>
+                    </li>
+                </ol>
+
+                <p><b>Steps to Submit a Timecard</b></p>
+                <ol>
+                    <li><p>Once you have completed and saved all of your timecard information for the period, press the <span><img src="./help_images/Arrowbutton.png"></span> in the top right hand corner of the screen. You will be presented with a pop-up screen allowing you to either Save, Submit or Delete your timecard.</p>
+                        <img class="images" src="./help_images/submittimecard.png"><img class="images" src="./help_images/submittimecard_popup.png">
+                    </li>
+                    <li><p>Press the <span><img src="./help_images/submit.png"></span> button. Upon successful submission your will receive an alert similar to the following:</p>
+                        <img class="images" src="./help_images/submittimecard_success.png">
+                    </li>
+                    <li><p>Press the <span><img src="./help_images/Okbutton.png"></span> button to be presented with a summary of your submitted timecard.  You can scroll up and down on this screen to view additional information if it does not all appear on one screen.</p>
+                        <img class="images" src="./help_images/summarytimecard.png">
+                    </li>
+                    <li>
+                        <p>From this screen, press the Back button to return to your list of timecards.  Notice that your timecard now has the status of Submitted.</p>
+                        <img class="images" src="./help_images/status_submitted.png">
+                    </li>
+                </ol>
+                <h3>Approving and rejecting timecards</h3>
+                <p>If you are a timecard approver, you can use the mobile app to review, reject and approve timecards.</p>
+                <ol>
+                    <li>
+                        <p>From the home screen, press the Approvals icon</p>
+                        <img src="./help_images/Approvalsicon.png">
+                    </li>
+                    <li>
+                        <p>Next, you will see two icons, one for Timecards and another for Expenses.  If you have timecards to approve, there will be a red badge attached to the Timecards.  The number inside the circle indicates the number of timecards that are awaiting your review and approval</p>
+                        <img src="./help_images/ApprovalsTimecard.png">
+                    </li>
+                    <li>
+                        <p>Press the Timecards icon to view the list of timecards for the employees whom you can approve for.  In the following screen shot, there is 1 timecard that is awaiting approval.</p>
+                        <img src="./help_images/ApprovalsTimesheet.png">
+                    </li>
+                    <li>
+                        <p>To review a timecard, press the name of the employee.  You will be presented with the employee&#8217;s timecard for the period.  To view the details for any day of the timecard, press the blue arrow <span><img src="./help_images/Bluearrow.png"></span> on the desired day:</p>
+                        <img src="./help_images/reviewtimecard1.png"><img src="./help_images/reviewtimecard2.png">
+                    </li>
+                    <li><p>To approve an employee&#8217;s timecard, press the <span><img src="./help_images/Arrowbutton.png"></span> button at the top right corner of the timecard summary page.  You will be presented with the following options:</p>
+                        <img src="./help_images/Approoptions.png">
+                        <p>Press the Approve button <span><img src="./help_images/Approbutton.png"></span> . An Alert will appear on the screen indicating the successful approval of the timecard. Press the <span><img src="./help_images/Okbutton.png"></span> button to dismiss the alert. </p>
+                    </li>
+                    <li>
+                        <p>To reject an employee&#8217;s timecard, first enter your rejection comments.  You may need to scroll down on the screen to see the Notes: box.  When finished entering your comments, press the <span><img src="./help_images/Donebutton.png"></span> button on the keyboard.</p>
+                        <img src="./help_images/rejecttimecard.png">
+                    </li>
+                    <li>
+                        <p>Now, press the <span><img src="./help_images/Arrowbutton.png"></span> button at the top right corner of the timecard summary page.  You will be presented with the following options:</p>
+                        <img src="./help_images/rejectionoptions.png">
+                        <p>Press the <span><img src="./help_images/rejectbutton.png"></span> button. An Alert will appear on the screen indicating the successful rejection of the timecard.  </p>
+                        <img src="./help_images/successrejection.png">
+                        <p>Press the <span><img src="./help_images/Okbutton.png"></span> button to dismiss the alert.</p>
+                    </li>
+                </ol>
+                <h3>Viewing your PTO balance</h3>
+                <p>To view your PTO balance follow these steps:</p>
+                <ol>
+                    <li>
+                        <p>From the home screen, press the Useful Info icon<span><img src="./help_images/usefulinfoicon.png"></span></p>
+                    </li>
+                    <li>
+                        <p>Now, press the icon labeled PTO Accounts<span><img src="./help_images/ptoaccounticon.png"></span></p>
+                        <img src="./help_images/ptoaccount.png">
+                    </li>
+                    <li>
+                        <p>Here you will see your PTO Balance</p>
+                        <img src="./help_images/ptobalance.png">
+                    </li>
+                </ol>
+                <h3>Viewing Jacobs&#8217;s policies</h3>
+                <p>To view certain policies, follow these steps:</p>
+                <ol>
+                    <li>
+                        <p>From the home screen, press the Useful Info icon<span><img src="./help_images/usefulinfoicon.png"></span></p>
+                        <img src="./help_images/jacobspolicies.png">
+                    </li>
+                    <li>
+                        <p>Now, press the Policies icon<span><img src="./help_images/policiesicon.png"></span></p>
+                        <img src="./help_images/policieshomepage.png">
+                    </li>
+                    <li>
+                        <p>Here, you will see a list of US policies.  Press any of these to display the policy on your mobile device.</p>
+                        <img src="./help_images/policymobile1.png"><img src="./help_images/policymobile2.png">
+                    </li>
+                </ol>
+                <h3>Configuring user preferences</h3>
+                <p>There are two configurable preferences that can be set on each mobile device.  To set these:</p>
+                <ol>
+                    <li>
+                        <p>Press the small gear icon <span><img src="./help_images/gearicon.png"></span> that appears in the lower right hand corner of the main screen.</p>
+                        <img src="./help_images/jacobsmainpage.png">
+                    </li>
+                    <li>
+                        <p>Now press the box labeled<span><img src="./help_images/userpreferences.png"></span></p>
+                        <img src="./help_images/settingspreferences.png">
+                    </li>
+                    <li>
+                        <p>Now you will see the two settings that can be changed once the user has logged into the mobile app.</p>
+                        <img src="./help_images/mobileapp.png">
+                        <ol>
+                            <li>
+                                <p><strong>Remember my User ID</strong> - When checked, the app will remember your Username.  Each time the app is launched, the username that was last used to log into the app will be displayed.  Now, just enter your password to log into the app.</p>
+                            <p><strong>Note:</strong> Passwords cannot be remembered.  In addition, passwords are not stored locally on the mobile device.</p>
+                            </li>
+                            <li>
+                                <p><strong>Enable Notifications</strong> - When checked, the app will trigger a daily alert at 9:00 AM reminding you to enter your time for the day.</p>
+                            </li>
+                        </ol>
+                    </li>
+                </ol>
+
+                <h3>Additional Resources</h3>
+                <p>You can find additional information regarding the Jacobs Mobile App on Jacobs Connect:</p>
+                <a onclick="location.href='https://jacobsconnect.jacobs.com/groups/jacobs-mobile-applications'">Jacobs Connect - Jacobs Mobile Applications</a>
+            </div>
+
+        </div>
+
+    </body>
+</html>

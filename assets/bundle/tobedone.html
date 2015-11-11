@@ -1,0 +1,61 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Jacobs login page</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1"> 
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet"  href="css/jquery.mobile-1.2.0.css" />
+        <link rel="stylesheet"  href="css/jquery.mobile.custom-1.2.0.css" /> 
+        <link rel="stylesheet"  href="css/custome.css" />
+        <script src="js/jquery-1.8.2.js"></script> 
+        <script src="js/jquery.mobile-1.2.0.js"></script>
+        <script src="js/constants.js"></script> 
+        <script>
+            $(document).ready(function(){
+                $("#user_name").text(localStorage.username);
+ 
+            });
+            function backAction(){
+                document.location=localStorage.backURI;//'menu.html';
+            }
+ 
+        </script>
+        <style>
+            .ui-header{
+                margin-top: -15px;
+            }
+            .ui-header .ui-title, .ui-footer .ui-title {
+                margin-bottom: 0;
+                margin-left: 0;
+                margin-right: 0;
+                margin-top: 15px !important;
+                text-shadow: none;
+            }
+            .ui-body-c, .ui-overlay-c{
+                height: 100% !important;
+            }
+        </style>
+    </head>
+    <body>
+        <div data-role="page" id="page1">
+            <div data-theme="c" data-role="header" position="fixed">
+                <a data-role="button" href="" onclick="backAction();" class="ui-btn-left buttn_bg">Back</a>
+                <h3></h3>
+                <p id="user_name" class="username"></p>
+            </div>
+
+
+            <div style="" id="content" data-role="fieldcontain">
+                <div style="margin: auto;"> <h1 align="center">Coming soon</h1></div>
+            </div>
+
+
+
+
+        </div>
+    </body>
+</html>

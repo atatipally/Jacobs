@@ -1,0 +1,323 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1"> 
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet"  href="css/jquery.mobile-1.2.0.css" />
+        <link rel="stylesheet"  href="css/jquery.mobile.custom-1.2.0.css" /> 
+        <link rel="stylesheet"  href="css/custome.css" />
+        <script src="js/jquery-1.8.2.js"></script> 
+        <script src="js/jquery.mobile-1.2.0.js"></script>
+        <script src="js/constants.js"></script>
+        <script src="js/detectos.js"></script>
+        <script src="js/hash.js"></script>
+        <style>
+            .ui-body-c, .ui-overlay-c{
+                background-image: url('./images/android/menu_bg.png');
+                background-size: 100% 100%;
+                background-repeat: no-repeat;
+                background-position: center center;
+            }
+            @media only screen and (-webkit-device-pixel-ratio:.75) and (orientation : portrait){
+                /* Put CSS for low density (ldpi) Android layouts in here */
+                .ui-body-c, .ui-overlay-c{
+                    background-image: url('./images/android/menu_bg.png');
+                    background-size: 100% 100%;
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                }
+            }
+            @media only screen and (-webkit-device-pixel-ratio:1) and (orientation : portrait){
+                /* Put CSS for medium density (mdpi) Android layouts in here */
+                .ui-body-c, .ui-overlay-c{
+                    background-image: url('./images/ios2x/menu_bg.png');
+                    background-size: 100% 100%;
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                }
+            }
+            @media only screen and (-webkit-device-pixel-ratio:1.5) and (orientation : portrait){
+                /* Put CSS for high density (hdpi) Android layouts in here */
+                .ui-body-c, .ui-overlay-c{
+                    background-image: url('./images/android/menu_bg.png');
+                    background-size: 100% 100%;
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                }
+            }
+
+            @media only screen and (-webkit-device-pixel-ratio:.75) and (orientation : landscape){
+                /* Put CSS for low density (ldpi) Android layouts in here */
+                .ui-body-c, .ui-overlay-c{
+                    background-image: url('./images/ios2x/menu_bg_ls.png');
+                    background-size: 100% 100%;
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                }
+            }
+            @media only screen and (-webkit-device-pixel-ratio:1) and (orientation : landscape){
+                /* Put CSS for high density (hdpi) Android layouts in here */
+                .ui-body-c, .ui-overlay-c{
+                    background-image: url('./images/ios2x/menu_bg_ls.png');
+                    background-size: 100% 100%;
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                }
+            }
+            @media only screen and (-webkit-device-pixel-ratio:1.5) and (orientation : landscape){
+                /* Put CSS for high density (hdpi) Android layouts in here */
+                .ui-body-c, .ui-overlay-c{
+                    background-image: url('./images/android/menu_bg_ls.png');
+                    background-size: 100% 100%;
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                }
+
+            }
+            /******************************  iOS PORTRAIT  ********************************/
+            @media only screen and (device-width: 320px) and (device-height: 480px) and (orientation : portrait){
+                .ui-body-c, .ui-overlay-c{
+                    background-image: url('./images/ios2x/menu_bg.png');
+                    /*   background-size: 320px 480px;*/
+                    background-size: 100% 100%;
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                }
+            }
+            @media only screen and (device-width: 320px) and (device-height: 568px) and (orientation : portrait){
+                .ui-body-c, .ui-overlay-c{
+                    background-image: url('./images/iphone5/menu_bg.png');
+                    /*   background-size: 320px 568px;*/
+                    background-size: 100% 100%;
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                }
+            }
+            @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait){
+                .ui-body-c, .ui-overlay-c{
+                    background-image: url('./images/ipad/menu_bg.png');
+                    /*   background-size: 768px 1024px;*/
+                    background-size: 100% 100%;
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                }
+                .menu_iconsdiv{
+                    margin-top: 250px !important;
+                }
+            }
+            /******************************  iOS LANDSCAPE  ********************************/
+            @media only screen and (device-width: 320px) and (device-height: 480px) and (orientation : landscape){
+                .ui-body-c, .ui-overlay-c{
+                    background-image: url('./images/ios2x/menu_bg_ls.png');
+                    background-size: 100% 100%;
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                }
+                .menu_iconsdiv{
+                    margin-top: 30px !important;
+                }
+            }
+            @media only screen and (device-width: 320px) and (device-height: 568px) and (orientation : landscape){
+                .ui-body-c, .ui-overlay-c{
+                    background-image: url('./images/iphone5/menu_bg_ls.png');
+                    /*   background-size: 320px 568px;*/
+                    background-size: 100% 100%;
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                }
+                .menu_iconsdiv{
+                    margin-top: 30px !important;
+                }
+            }
+            @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape){
+                .ui-body-c, .ui-overlay-c{
+                    background-image: url('./images/ipad/menu_bg_ls.png');
+                    /*   background-size: 768px 1024px;*/
+                    background-size: 100% 100%;
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                }
+                .menu_iconsdiv{
+                    margin-top: 200px !important;
+                }
+            }
+
+
+            .icon_home_menu:active{
+                opacity: 0.5;
+            }
+            .icon_home_menu{
+                width: 90px;
+                height: 90px;
+                background-size: 105px 105px;
+                background-repeat: no-repeat;
+                background-position: center center;
+                text-align: center;
+                /*border: 1px solid;*/
+            }
+            .icon_home_menu_titles{
+                height: 20px;
+                text-align: center;
+                color: white;
+                text-shadow: 1px 1px 3px blue;
+                line-height: 5px;
+                font-weight: bold;
+                font-size: 12px;
+                margin-top: -20px;
+            }
+            .ui-bar-c {
+                background: transparent;
+                border: none;
+            }
+            #page1{
+                width: 100%;
+                height: 100% !important;
+                overflow-x: hidden;
+                overflow-y: scroll;
+            }
+            #menu{
+                margin-top: 70px;
+            }
+            .landscape_bg{
+                background-image: url('./images/android/menu_bg_ls.png');
+                background-size: 100% 100%;
+                background-repeat: no-repeat;
+                background-position: center center;
+            }
+        </style>
+        <script>
+            var userId = localStorage.userid;
+            
+            var baseURL = connectionURL;
+            if(localStorage.currentURL == "1"){
+                baseURL = altConnectionURL;
+            }
+            
+            $(document).ready(function(){
+                switch(window.orientation){  
+                    case -90:
+                    case 90:
+                        window.onorientationchange();
+                            
+                }
+                $("#user_name").text(localStorage.username);
+                $("#loading_screen").show();
+                //GETTING APPROVALS TO CALCULATE BADGE COUNT
+                //   if(userType == 'Manager'){
+                var hash = getHash();
+                var url = baseURL+'GetPrimaryApprovals_1'; //'https://etsmobile.jacobs.com/restful/GetPrimaryApprovals_1'
+                var params = '{\"approver_id":\"'+userId+'\",\"secondaryapprover_id":\"'+userId+'\",\"hash":\"'+hash+'\"}';
+                //  show();
+                if(isMobile.iOS()){
+                    window.location = BASE_DELI_MITER+'approvalsrequest'+DELI_MITER+userId+DELI_MITER+hash;
+                }
+                else{
+                    $.ajax({
+                        url: url,
+                        type: 'GET',
+                        dataType: 'jsonp',
+                        data:'approvalsrequest='+params,
+                        timeout: 30000,
+                        async: false,
+                        success: function (data, textStatus, xhr) {
+                            //   alert('success : '+data);
+                            showApprovals(data)
+                        },
+                        error: function (request, status, error) {
+                            $("#loading_screen").hide();
+                            //    alert(error);
+                        }
+                                     
+                    });
+                }
+                //    }
+            });
+            
+            
+            function urldecode(str) {
+                return decodeURIComponent((str+'').replace(/\+/g, '%20'));
+            }
+            function showApprovals(data){
+                var approvalCount = 0;
+                data = urldecode(data);
+                //                localStorage.primaryapprovals = data;
+                //                var data = localStorage.primaryapprovals;
+                if(data.length){
+                    var response = JSON.parse(data);
+                    if(response.response == 'success'){
+                        // For Primary Approvals
+                        var resdata = response.primary_approvals;
+                        //alert(array.length);
+                        for (var i=0;i<resdata.length;i++){
+                            var tobj = resdata[i];
+                            if(tobj.APPROVAL_STATUS_DISP == "Submitted"){
+                                approvalCount++;
+                            }
+                        }
+                    }
+                }
+                $("#loading_screen").hide();
+                var html = '<tr>';
+                html += ' <td class="icon_home_menu" style="background-image: url(\'./images/common/clock_icon.png\');" onclick="location.href=\'approvals.html\';"><div class="badge">'+approvalCount+'</div></td>';
+                html += '  <td class="icon_home_menu" style="background-image: url(\'./images/common/expenses_icon.png\'); " onclick="openExpenses()"></td>';
+                html += '  </tr>';
+                html += '  <tr>';
+                html += '     <td class="icon_home_menu_titles" >Timecards</td>';
+                html += '    <td class="icon_home_menu_titles" >Expenses</td>';
+                html += '  </tr>';
+                $("#menu").append(html);
+
+            }
+            function openExpenses(){
+                if(isMobile.iOS()){
+                    window.location = BASE_DELI_MITER+'mobiexpenseurl';
+                }else if(isMobile.Android()){
+                    Android.loadExpenses(localStorage.currentURL);
+                }
+            }
+            window.onorientationchange = function() {
+                if(isMobile.Android()){
+                    switch(window.orientation) 
+                    {  
+                        case -90:
+                        case 90:
+                            //landscape
+                            $(".ui-body-c").removeClass("ui-body-c").removeClass("ui-overlay-c").addClass("landscape_bg");
+                            $(".menu_iconsdiv").css("margin-top","100px");
+                            break; 
+                        default:
+                            //portrait
+                            $(".landscape_bg").addClass("ui-body-c").addClass("ui-overlay-c").removeClass("landscape_bg");
+                            $(".menu_iconsdiv").css("margin-top","130px");
+                    }
+                }
+            }
+            function backAction(){
+                document.location='menu.html';
+            }
+        </script>
+    </head>
+    <body>
+        <div data-role="page" id="page1">
+            <div data-theme="c" data-role="header" data-position="">
+                <a data-role="button" href="#" onclick="backAction();" class="ui-btn-left buttn_bg">Back</a>
+
+            </div>
+
+            <!--<div data-role="content">-->
+
+            <table class="menu_iconsdiv" id="menu">
+                <!--Fill this table with icons from JS-->
+            </table>
+            <div class="loading_imgdiv" id="loading_screen" style="display: none;">
+                <p class="loading_img"></p>
+            </div>
+            <!--</div>-->
+        </div>
+    </body>
+</html>
